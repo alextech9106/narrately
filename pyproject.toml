@@ -1,10 +1,11 @@
 [project]
 name = "text-to-voice"
 version = "0.1.0"
-description = "Add your description here"
+description = "Convert a web article into a spoken mp3 file from its URL"
 readme = "README.md"
+license = "MIT"
 authors = [
-    { name = "alextech9106", email = "alextech9106@gmail.com" }
+    { name = "Alex Brito de las Cuevas", email = "alextech9106@gmail.com" }
 ]
 requires-python = ">=3.13"
 dependencies = [
@@ -15,9 +16,16 @@ dependencies = [
     "pydantic>=2.13.4",
     "pydantic-settings>=2.15.0",
 ]
+keywords = ["tts", "text-to-speech", "web-scraping", "newspaper", "gtts", "mp3"]
+classifiers = [
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
 
-[project.scripts]
-text-to-voice = "text_to_voice:main"
+[project.urls]
+Repository = "https://github.com/alextech9106/text-to-voice"
 
 [build-system]
 requires = ["uv_build>=0.12.3,<0.13.0"]
@@ -30,3 +38,11 @@ dev = [
     "pytest-cov>=7.1.0",
     "ruff>=0.16.3",
 ]
+
+[[tool.mypy.overrides]]
+module = ["gtts.*", "newspaper.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "-q --strict-markers --strict-config"
+testpaths = ["tests"]
