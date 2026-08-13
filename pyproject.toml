@@ -8,6 +8,10 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "gtts>=2.5.4",
+    "lxml-html-clean>=0.4.5",
+    "newspaper3k>=0.2.8",
+    "nltk>=3.10.3",
     "pydantic>=2.13.4",
     "pydantic-settings>=2.15.0",
 ]
