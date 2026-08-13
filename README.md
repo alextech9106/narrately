@@ -1,17 +1,17 @@
-# text-to-voice
+# narrately
 
 Convert a web article into a spoken mp3 file, given its URL.
 
 ## Installation
 
 ```bash
-pip install text-to-audio
+pip install narrately
 ```
 
 ## Usage
 
 ```python
-from text_to_audio import text_to_audio
+from narrately import text_to_audio
 
 output_path = text_to_audio(
     "https://example.com/some-article",

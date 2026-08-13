@@ -2,14 +2,14 @@ from pathlib import Path
 
 import pytest
 
-import text_to_audio
+import narrately
 
 
 def test_text_to_audio_orchestrates_scrape_and_speech(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr(text_to_audio, "_get_article_text", lambda url: "hello world")
+    monkeypatch.setattr(narrately, "_get_article_text", lambda url: "hello world")
 
     saved: dict[str, object] = {}
 
@@ -18,9 +18,9 @@ def test_text_to_audio_orchestrates_scrape_and_speech(
         saved["output_path"] = output_path
         saved["lang"] = lang
 
-    monkeypatch.setattr(text_to_audio, "_create_audio_file", fake_create_audio_file)
+    monkeypatch.setattr(narrately, "_create_audio_file", fake_create_audio_file)
 
-    result = text_to_audio.text_to_audio(
+    result = narrately.text_to_audio(
         "https://example.com/article", "my_article", lang="es"
     )
 
