@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project state
 
 This is a brand-new `uv`-managed Python project (src layout). The only code so far is a
-`main()` stub in `src/text_to_voice/__init__.py` that prints a greeting. There are no
+`main()` stub in `src/text_to_audio/__init__.py` that prints a greeting. There are no
 tests, no `tests/` directory, and no CI configured yet — set these up as the project grows
 rather than assuming they exist.
 
@@ -15,7 +15,7 @@ This project uses **uv** exclusively for environment, dependency, and script man
 not use bare `pip`/`python`, and do not mix in Poetry or other tooling.
 
 ```bash
-uv run text-to-voice        # run the CLI entry point (defined in [project.scripts])
+uv run text-to-audio        # run the CLI entry point (defined in [project.scripts])
 uv run pytest -q            # run tests
 uv run pytest -q path/to/test_file.py::test_name   # run a single test
 uv run ruff format --check .
@@ -41,7 +41,7 @@ The project targets a `src/<package>/` layout with these intended layers (see
 - `adapters/` — I/O boundaries: DB, HTTP, filesystem, queues
 - `cli.py` / `api/` — entry points; translate input/output only, no business rules
 
-Only `src/text_to_voice/__init__.py` exists today, so this structure hasn't been built out yet
+Only `src/text_to_audio/__init__.py` exists today, so this structure hasn't been built out yet
 — follow it as new modules are added rather than treating it as already in place.
 
 ## Conventions

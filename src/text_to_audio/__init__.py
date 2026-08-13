@@ -23,7 +23,7 @@ def _create_audio_file(text: str, output_path: Path, lang: str) -> None:
     tts.save(str(output_path))
 
 
-def text_to_voice(url: str, audio_file_name: str, lang: str = "en") -> Path:
+def text_to_audio(url: str, audio_file_name: str, lang: str = "en") -> Path:
     """Scrape the article at `url` and save it as an mp3 file named `audio_file_name`."""
     output_path = Path(f"{audio_file_name}.mp3")
     text = _get_article_text(url)
@@ -31,4 +31,4 @@ def text_to_voice(url: str, audio_file_name: str, lang: str = "en") -> Path:
     return output_path
 
 
-__all__ = ["text_to_voice"]
+__all__ = ["text_to_audio"]

@@ -5,15 +5,15 @@ Convert a web article into a spoken mp3 file, given its URL.
 ## Installation
 
 ```bash
-pip install text-to-voice
+pip install text-to-audio
 ```
 
 ## Usage
 
 ```python
-from text_to_voice import text_to_voice
+from text_to_audio import text_to_audio
 
-output_path = text_to_voice(
+output_path = text_to_audio(
     "https://example.com/some-article",
     "article",
     lang="en",
@@ -21,7 +21,7 @@ output_path = text_to_voice(
 print(f"Saved audio to {output_path}")
 ```
 
-`text_to_voice(url, audio_file_name, lang="en")` downloads and extracts the
+`text_to_audio(url, audio_file_name, lang="en")` downloads and extracts the
 article text from `url` (using `newspaper3k`), converts it to speech (using
 `gtts`), and saves it as `{audio_file_name}.mp3`. It returns the `Path` to the
 generated file.
