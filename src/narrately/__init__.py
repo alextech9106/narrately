@@ -40,4 +40,4 @@ def text_to_audio(text: str, audio_file_name: str, lang: str = "en") -> Path:
     return _export_audio_file(audio_file_name, text, lang)
 
 
-__all__ = ["text_to_audio"]
+__all__ = ["article_to_audio", "text_to_audio"]
