@@ -20,11 +20,13 @@ def test_article_to_audio_orchestrates_scrape_and_speech(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr(narrately, "_get_article_text", lambda url: "hello world")
+    monkeypatch.setattr(
+        narrately._internal, "get_article_text", lambda url: "hello world"
+    )
 
     saved: dict[str, object] = {}
     monkeypatch.setattr(
-        narrately, "_create_audio_file", _capture_create_audio_file(saved)
+        narrately._internal, "create_audio_file", _capture_create_audio_file(saved)
     )
 
     result = narrately.article_to_audio(
@@ -47,11 +49,11 @@ def test_text_to_audio_converts_text_directly(
     def fail_if_called(url: str) -> str:
         raise AssertionError("text_to_audio must not scrape an article")
 
-    monkeypatch.setattr(narrately, "_get_article_text", fail_if_called)
+    monkeypatch.setattr(narrately._internal, "get_article_text", fail_if_called)
 
     saved: dict[str, object] = {}
     monkeypatch.setattr(
-        narrately, "_create_audio_file", _capture_create_audio_file(saved)
+        narrately._internal, "create_audio_file", _capture_create_audio_file(saved)
     )
 
     result = narrately.text_to_audio("hello world", "greeting", lang="es")
