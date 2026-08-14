@@ -1,6 +1,6 @@
 [project]
 name = "narrately"
-version = "0.1.0"
+version = "0.1.1"
 description = "Convert a web article into a spoken mp3 file from its URL"
 readme = "README.md"
 license = "MIT"
